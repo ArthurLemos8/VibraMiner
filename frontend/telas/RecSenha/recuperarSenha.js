@@ -4,10 +4,30 @@ const email = document.getElementById("email");
 const novaSenha = document.getElementById("novaSenha");
 const confirmarSenha = document.getElementById("confirmarSenha");
 
+const olhos = document.querySelectorAll(".olho");
+
 const erroEmail = document.getElementById("erroEmail");
 const erroSenha = document.getElementById("erroSenha");
 const erroConfirmacaoSenha = document.getElementById("erroConfirmarSenha");
 const mensagemSucesso = document.getElementById("mensagemSucesso");
+
+olhos.forEach((olho, index) => {
+  olho.addEventListener("click", () => {
+    const campo = index === 0 ? novaSenha : confirmarSenha;
+
+    if (campo.type === "password") {
+      campo.type = "text";
+
+      olho.classList.remove("bi-eye");
+      olho.classList.add("bi-eye-slash");
+    } else {
+      campo.type = "password";
+
+      olho.classList.remove("bi-eye-slash");
+      olho.classList.add("bi-eye");
+    }
+  });
+});
 
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -54,6 +74,13 @@ formulario.addEventListener("submit", (event) => {
     erroEmail.textContent = "E-mail não cadastrado";
     return;
   }
+
+  olhos.forEach((olho) => {
+    olho.classList.remove("bi-eye-slash");
+    olho.classList.add("bi-eye");
+  });
+  novaSenha.type = "password";
+  confirmarSenha.type = "password";
 
   usuario.senha = novaSenha.value;
   localStorage.setItem("usuario", JSON.stringify(usuario));

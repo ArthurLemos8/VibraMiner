@@ -11,18 +11,24 @@
   --azul-400: #4ca3f5;
   --azul-300: #7dbaf8;
   --azul-100: #e6f1ff;
+
   --preto: #101820;
+
   --cinza-800: #2a2f36;
   --cinza-700: #51565f;
   --cinza-500: #7b8591;
   --cinza-300: #adb5bd;
   --cinza-200: #e9ecef;
   --cinza-100: #f5f7fa;
+
   --branco: #ffffff;
+
   --fundo: #f8fbff;
   --borda: #e3e8f0;
+
   --texto: #101820;
   --texto-secundario: #64748b;
+
   --erro: #ff4d4f;
   --sucesso: #28a745;
 }
@@ -31,6 +37,7 @@ body {
   background-color: var(--fundo);
   color: var(--texto);
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,28 +46,37 @@ body {
 .container {
   width: 100%;
   max-width: 430px;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
   border-radius: 20px;
+
   padding: 40px;
   margin: 30px;
+
   box-shadow: 0 15px 40px rgba(16, 24, 32, 0.08);
 }
 
 h1 {
   font-family: "Space Grotesk", sans-serif;
   color: var(--texto);
-  font-size: 38px;
+
+  font-size: 32px;
   font-weight: 700;
+
   text-align: center;
+
   margin-bottom: 15px;
 }
 
 p {
   color: var(--texto-secundario);
+
   font-size: 14px;
   text-align: center;
   line-height: 1.5;
+
   margin-bottom: 20px;
 }
 
@@ -74,14 +90,22 @@ form {
   width: 100%;
 }
 
+/* Campos de texto */
 .input-box input {
   width: 100%;
-  padding: 15px;
+
+  /* espaço para o cadeado e para o olho */
+  padding: 15px 50px 15px 50px;
+
   border-radius: 10px;
+
   color: var(--texto);
   font-size: 15px;
+
   background: transparent;
+
   border: 2px solid var(--borda);
+
   transition: 0.3s;
 }
 
@@ -91,37 +115,97 @@ form {
 
 .input-box input:focus {
   outline: none;
+
   border-color: var(--azul-primario);
+
   box-shadow: 0 0 0 4px var(--azul-100);
 }
 
+/* Cadeado */
+.input-box > .bi-lock {
+  position: absolute;
+
+  left: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--cinza-500);
+
+  font-size: 20px;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* Olho */
+.input-box > .olho {
+  position: absolute;
+
+  right: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--cinza-500);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition: 0.3s;
+}
+
+.input-box > .olho:hover {
+  color: var(--azul-primario);
+}
+
+/* Mensagens de erro */
 .erro {
   display: block;
+
   color: var(--erro);
+
   font-size: 13px;
+
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
+/* Mensagem de sucesso */
 .sucesso {
   color: var(--sucesso);
+
   font-weight: 600;
+
   margin-top: 15px;
+
   text-align: center;
 }
 
+/* Botão */
 button {
   margin-top: 25px;
   margin-bottom: 30px;
+
   width: 100%;
+
   padding: 16px;
+
   background: var(--azul-primario);
   color: var(--branco);
+
   border: none;
   border-radius: 10px;
+
   font-size: 16px;
   font-weight: 600;
+
   cursor: pointer;
+
   transition: 0.3s;
 }
 
@@ -133,24 +217,25 @@ button:active {
   background: var(--azul-400);
 }
 
+/* Link voltar */
 .voltar {
   text-align: center;
+
   margin-top: 10px;
   margin-bottom: 0;
 }
 
 .voltar a {
   color: var(--azul-primario);
+
   text-decoration: none;
+
   font-size: 14px;
   font-weight: 600;
 }
 
 .voltar a:hover {
   color: var(--azul-500);
-  text-decoration: none;
-}
 
-h1 {
-  font-size: 32px;
+  text-decoration: none;
 }
